@@ -23,7 +23,16 @@ export default function App() {
             rel="noreferrer"
           >
             GitHub
+          </a>{" "}
+          and hosted on{" "}
+          <a
+            href="https://react-weather-app-maliekapdev.netlify.app/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Netlify
           </a>
+          .
         </p>
       </div>
     </div>
