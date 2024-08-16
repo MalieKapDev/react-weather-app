@@ -1,0 +1,48 @@
+/*Colors*/
+:root {
+  /*Black*/
+  --light-black: #6f959b;
+  --primary-black: #283739;
+  --dark-black: #080c0c;
+  /*Light Blue*/
+  --light-blue: #c5f4fb;
+  --primary-blue: #0fc9e7;
+  --dark-blue: #6fb5d8;
+  /*Dark Blue*/
+  --light-accent: #3186b2;
+  --primary-accent: #4756ca;
+  --dark-accent: #1c235f;
+  /*White*/
+  --light-white: #f5f5f5;
+  --primary-white: #ebebeb;
+  --dark-white: #b8b8b8;
+  /*Shadow*/
+  --light-shadow: #152744;
+  --dark-shadow: #0a121f;
+  /*Gradients*/
+  --background: linear-gradient(-225deg, #5d9fff 0%, #b8dcff 48%, #6bbbff 100%);
+}
+
+.WeatherTemperature .temperature {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.WeatherTemperature .unit {
+  font-size: 18px;
+  position: relative;
+  line-height: 1;
+  top: -22px;
+}
+
+@media (max-width: 600px) {
+  .WeatherTemperature .temperature {
+    margin-left: -4px;
+    font-size: 30px;
+  }
+
+  .WeatherTemperature .unit {
+    font-size: 12px;
+    top: -14px;
+  }
+}
