@@ -9,6 +9,7 @@ exports.handler = async (event, context) => {
       `https://newsapi.org/v2/top-headlines?country=${countryCode}&category=general&apiKey=${apiKey}`,
       {
         headers: { Accept: "application/json", "Accept-Encoding": "identity" },
+        params: { trophies: true },
       }
     );
 
