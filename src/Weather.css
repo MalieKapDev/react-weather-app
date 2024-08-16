@@ -1,16 +1,62 @@
-.Weather {
-  border: 1px solid #dadde1;
-  padding: 16px;
-  border-radius: 4px;
-  color: rgb(135, 135, 135);
-  font-family: arial, sans-serif;
+/*Colors*/
+:root {
+  /*Black*/
+  --light-black: #6f959b;
+  --primary-black: #283739;
+  --dark-black: #080c0c;
+  /*Light Blue*/
+  --light-blue: #c5f4fb;
+  --primary-blue: #0fc9e7;
+  --dark-blue: #6fb5d8;
+  /*Dark Blue*/
+  --light-accent: #3186b2;
+  --primary-accent: #4756ca;
+  --dark-accent: #1c235f;
+  /*White*/
+  --light-white: #f5f5f5;
+  --primary-white: #ebebeb;
+  --dark-white: #b8b8b8;
+  /*Shadow*/
+  --light-shadow: #152744;
+  --dark-shadow: #0a121f;
+  /*Gradients*/
+  --background: linear-gradient(-225deg, #5d9fff 0%, #b8dcff 48%, #6bbbff 100%);
+}
+
+.Weather .search-form-input {
+  background-color: var(--primary-white);
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 16px;
+  padding: 15px 20px;
+}
+
+.Weather .search-button {
+  background: var(--primary-accent);
+  padding: 15px 30px;
+  margin-left: -15px;
+  border: none;
+  font-size: 16px;
+  border-radius: 6px;
+  color: var(--light-white);
+  transition: all 200ms ease-in-out;
+}
+
+.Weather .search-button:hover {
+  background: var(--light-accent);
+  cursor: pointer;
+  transform: scale(110%);
+}
+
+.Weather .Loading-circles {
+  margin: 50px 100px 50px 170px;
 }
 
 .Weather h1 {
-  font-size: 24px;
-  font-weight: 100;
-  margin: 20px 0 0 0;
-  line-height: 29px;
+  font-size: 38px;
+  line-height: 48px;
+  color: var(--dark-black);
 }
 
 .Weather ul {
@@ -20,31 +66,53 @@
 
 .Weather li {
   font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
+  color: var(--primary-black);
+  line-height: 24px;
+  font-weight: 400;
   list-style: none;
 }
 
-.Weather img {
-  height: 64px;
-  width: 64px;
-  margin-right: 10px;
-  display: inline-block;
+.Weather .NewsHeadlines {
+  color: var(--primary-black);
+  padding: 10px 30px 10px 30px;
+  margin-top: 30px;
+  background: var(--primary-white);
+  border-radius: 16px;
 }
 
-.Weather .temperature {
-  font-weight: bold;
-  color: rgb(33, 33, 33);
-  font-size: 64px;
-  line-height: 64px;
-  font-weight: 400;
+.Weather .random-quote {
+  color: var(--primary-accent);
+  margin-bottom: -5px;
+  font-style: italic;
+  font-weight: 500;
 }
 
-.Weather .unit {
-  color: rgb(33, 33, 33);
-  font-size: 16px;
-  font-weight: 400;
-  position: relative;
-  line-height: 1;
-  top: -34px;
+@media (max-width: 600px) {
+  .Weather .search-form-input {
+    font-size: 14px;
+    width: 98%;
+  }
+
+  .Weather .search-button {
+    padding: 15px 28px;
+    margin-left: -20px;
+    font-size: 14px;
+  }
+
+  .Weather h1 {
+    font-size: 28px;
+    margin-top: -20px;
+  }
+
+  .Weather li {
+    font-size: 14px;
+  }
+
+  .Weather .NewsHeadlines {
+    margin-top: 20px;
+  }
+
+  .Weather .random-quote {
+    margin-top: -10px;
+  }
 }

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
-import { Circles } from "react-loader-spinner";
 
+import WeatherInfo from "./WeatherInfo";
+import WeatherForecast from "./WeatherForecast";
+import RandomQuote from "./RandomQuote";
+import NewsHeadlines from "./NewsHeadlines";
+
+import { Circles } from "react-loader-spinner";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -11,6 +15,7 @@ export default function Weather(props) {
   function handleResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coordinates,
       temperature: response.data.temperature.current,
       feelsLike: response.data.temperature.feels_like,
       humidity: response.data.temperature.humidity,
@@ -19,6 +24,7 @@ export default function Weather(props) {
       iconUrl: response.data.condition.icon_url,
       wind: response.data.wind.speed,
       city: response.data.city,
+      country: response.data.country,
     });
   }
 
@@ -40,72 +46,68 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-9">
-              <input
-                type="search"
-                placeholder="Enter a city..."
-                className="form-control"
-                autoFocus="on"
-                onChange={handleCityChange}
-              />
+        <div className="items-center mb-3">
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a city..."
+                  className="search-form-input"
+                  autoFocus="on"
+                  onChange={handleCityChange}
+                />
+              </div>
+              <div className="col-3">
+                <input type="submit" value="Search" className="search-button" />
+              </div>
             </div>
-            <div className="col-3">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-primary w-100"
-              />
-            </div>
-          </div>
-        </form>
+          </form>
+        </div>
+
         <WeatherInfo data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
+        <div className="NewsHeadlines">
+          <NewsHeadlines country={weatherData.country} />
+        </div>
+        <div className="random-quote">
+          <RandomQuote city={weatherData.city} />
+        </div>
       </div>
     );
   } else {
     search();
     return (
       <div className="Weather">
-        <form>
-          <div className="row">
-            <div className="col-9">
-              <input
-                type="search"
-                placeholder="Enter a city..."
-                className="form-control"
-                autoFocus="on"
-              />
+        <div className="flex items-center mb-3">
+          <form onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="col-9">
+                <input
+                  type="search"
+                  placeholder="Enter a city..."
+                  className="search-form-input"
+                  autoFocus="on"
+                  onChange={handleCityChange}
+                />
+              </div>
+              <div className="col-3">
+                <input type="submit" value="Search" className="search-button" />
+              </div>
             </div>
-            <div className="col-3">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-primary w-100"
-              />
-            </div>
-          </div>
-        </form>
-        <h1>"Loading weather for city..."</h1>
-        <div className="row mt-3">
-          <div className="col-6">
-            <Circles
-              height="64"
-              width="80"
-              color="#4fa94d"
-              ariaLabel="circles-loading"
-              wrapperStyle={{}}
-              wrapperClass=""
-              visible={true}
-            />
-          </div>
-          <div className="col-6">
-            <ul>
-              <li>Precipitation:</li>
-              <li>Humidity:</li>
-              <li>Wind:</li>
-            </ul>
-          </div>
+          </form>
+        </div>
+
+        <div className="row Loading-circles">
+          <Circles
+            height="100"
+            width="100"
+            color="#4756ca"
+            ariaLabel="circles-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={true}
+          />
         </div>
       </div>
     );
