@@ -7,6 +7,7 @@ import RandomQuote from "./RandomQuote";
 import NewsHeadlines from "./NewsHeadlines";
 
 import { Circles } from "react-loader-spinner";
+
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -46,7 +47,7 @@ export default function Weather(props) {
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <div className="items-center mb-3">
+        <div className="items-center mb-3 mt-2">
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="col-9">

@@ -48,7 +48,7 @@
 .NewsHeadlines .Article-url {
   font-size: 16px;
   color: var(--light-black);
-  text-decoration: none;
+  text-decoration: underline;
   transition: all 200ms ease-in-out;
 }
 

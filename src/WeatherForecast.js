@@ -19,12 +19,25 @@ export default function WeatherForecast(props) {
 
   if (loaded) {
     return (
-      <div className="pt-4 mt-4 WeatherForecast">
-        <div className="pb-4 mb-4 row WeatherForecast-day">
+      <div className="pb-1 pb-sm-4 WeatherForecast">
+        <p className="pt-2 pb-1 pb-sm-3 text-start">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="13"
+            height="13"
+            fill="currentColor"
+            className="bi bi-calendar"
+            viewBox="0 0 16 16"
+          >
+            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+          </svg>{" "}
+          Daily Forecast:
+        </p>
+        <div className="pt-3 pb-2 row WeatherForecast-day">
           {forecast.map(function (dailyForecast, index) {
             if (index < 5) {
               return (
-                <div className="col" key={index}>
+                <div className="col gx-1 gx-sm-4" key={index}>
                   <WeatherForecastDay data={dailyForecast} />
                 </div>
               );
@@ -33,7 +46,6 @@ export default function WeatherForecast(props) {
             }
           })}
         </div>
-        
       </div>
     );
   } else {
